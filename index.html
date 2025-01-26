@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asser Mahmoud - Filmmaker & Entrepreneur</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      color: #ffffff;
+    }
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #8a2be2;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(18, 18, 18, 0.9);
+      transition: background-color 0.3s, padding 0.3s;
+    }
+    .navbar.scrolled {
+      background-color: #121212;
+      padding: 10px 0;
+    }
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1a73e8 !important;
+    }
+    .navbar-nav .nav-link {
+      color: #e0e0e0 !important;
+      font-size: 1.1rem;
+      margin-left: 20px;
+      transition: color 0.3s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #8a2be2 !important;
+    }
+
+    /* Home Section */
+    .hero {
+      background: url('hero-bg.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(26, 115, 232, 0.7);
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      color: #e0e0e0;
+    }
+    .hero .btn {
+      margin: 10px;
+      font-size: 1.1rem;
+      padding: 12px 30px;
+      border-radius: 30px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .hero .btn-primary {
+      background-color: #1a73e8;
+      border: none;
+    }
+    .hero .btn-outline-light {
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+    .hero .btn:hover {
+      background-color: #8a2be2;
+      transform: translateY(-5px);
+    }
+
+    /* Social Links */
+    .social-links {
+      margin-top: 30px;
+    }
+    .social-links a {
+      color: #e0e0e0;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-links a:hover {
+      color: #8a2be2;
+      transform: translateY(-5px);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sections */
+    .section {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .section h2 {
+      font-size: 2.8rem;
+      margin-bottom: 50px;
+      text-align: center;
+      color: #ffffff;
+      background: linear-gradient(45deg, #1a73e8, #8a2be2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientAnimation 5s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* About Section */
+    #about {
+      background-color: #1a1a1a;
+    }
+    #about img {
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+    }
+    #about img:hover {
+      transform: scale(1.05);
+    }
+    #about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #e0e0e0;
+    }
+
+    /* Works Section */
+    #works {
+      background-color: #121212;
+    }
+    .work-card {
+      position: relative;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+    }
+    .work-card:hover {
+      transform: translateY(-10px);
+    }
+    .work-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .work-card .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .work-card:hover .overlay {
+      opacity: 1;
+    }
+    .work-card .overlay h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .work-card .overlay p {
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+    .work-card .overlay a {
+      margin-top: 15px;
+      color: #1a73e8;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .work-card .overlay a:hover {
+      color: #8a2be2;
+    }
+
+    /* CV Section */
+    #cv {
+      background-color: #1a1a1a;
+    }
+    #cv .btn {
+      margin-top: 20px;
+      background-color: #1a73e8;
+      border: none;
+    }
+    #cv .btn:hover {
+      background-color: #8a2be2;
+    }
+
+    /* Contact Section */
+    #contact {
+      background-color: #1a1a1a;
+      padding: 100px 0;
+      text-align: center;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 30px;
+    }
+    .contact-item {
+      text-align: center;
+    }
+    .contact-item i {
+      color: #1a73e8;
+      margin-bottom: 10px;
+      animation: glow 2s infinite;
+    }
+    .contact-item p {
+      font-size: 1.2rem;
+      margin: 0;
+      color: #e0e0e0;
+    }
+    .contact-item a {
+      color: #e0e0e0;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-item a:hover {
+      color: #8a2be2;
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #1a73e8; }
+      50% { text-shadow: 0 0 20px #8a2be2; }
+      100% { text-shadow: 0 0 5px #1a73e8; }
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000000;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer p {
+      margin: 0;
+      color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Asser Mahmoud</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#works">Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <video autoplay muted loop>
+      <source src="film-reel.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="container hero-content">
+      <h1>Bringing Stories to Life</h1>
+      <p>Filmmaker | Assistant Director | Entrepreneur</p>
+      <div>
+        <a href="#works" class="btn btn-primary btn-lg">View My Work</a>
+        <a href="#cv" class="btn btn-outline-light btn-lg">Download CV</a>
+      </div>
+      <div class="social-links">
+        <a href="https://instagram.com/[username]" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/in/[username]" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:[email]" target="_blank"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="profile.png" alt="[His Name]" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <p>Hi, I’m Asser Mahmoud, a passionate filmmaker and creative entrepreneur based in Egypt. With over 6 years of experience in the film industry, I’ve directed short films, assisted in TV productions, and brought stories to life on screen. I’m also the founder of <strong>Chavo Store</strong>, a brand dedicated to high-quality beauty products.</p>
+          <p>When I’m not on set, I enjoy exploring new storytelling techniques and collaborating with other creatives. Let’s create something amazing together!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works Section -->
+  <section id="works" class="section">
+    <div class="container">
+      <h2>My Works</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="work-card">
+            <img src="helm.jpg" alt="Short Film 1">
+            <div class="overlay">
+              <h3>Short Film 1</h3>
+              <p>A gripping story about love and loss.</p>
+              <a href="#">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-card">
+            <img src="zena.jpg" alt="TV Series">
+            <div class="overlay">
+              <h3>TV Series</h3>
+              <p>An episodic drama series exploring human emotions.</p>
+              <a href="#">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-card">
+            <img src="khtyar.jpg" alt="Chavo Store">
+            <div class="overlay">
+              <h3>Chavo Store</h3>
+              <p>High-quality beauty products for everyone.</p>
+              <a href="#">Visit Store</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV Section -->
+  <section id="cv" class="section">
+    <div class="container text-center">
+      <h2>Download My CV</h2>
+      <p>Want to know more about my experience and skills? Download my CV below.</p>
+      <a href="cv.pdf" class="btn btn-primary btn-lg">Download CV</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container text-center">
+      <h2>Get in Touch</h2>
+      <p>Feel free to reach out to me for collaborations, inquiries, or just a chat!</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope fa-2x"></i>
+          <p><a href="mailto:dobylove15@gmail.com">dobylove15@gmail.com</a></p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone fa-2x"></i>
+          <p><a href="tel:+[his-phone-number]">+201016805824</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Asser Mahmoud. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
